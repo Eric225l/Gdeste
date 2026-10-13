@@ -13,6 +13,7 @@ server.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
     optionsSuccessStatus:200
 }));
+
 server.use(express.json());
 
 /*Rotas de requisção para os membros*/
@@ -32,7 +33,7 @@ server.delete("/sistema/membros/:id", async (req, res)=>{
     res.status(204).json({message: "Dados deletados"});
 })
 
-server.patch("/sistema/membros/:id",async (req, res)=> {
+server.patch("/sistema/membros/:id", async (req, res)=> {
     await database.databaseUpdateMember(req.params.id, req.body);
     res.status(200).json({message:"Dados atualizados"});
 })
@@ -45,7 +46,6 @@ server.get("/sistema/publicacoes", async (req, res)=>{
 })
 
 server.post("/sistema/publicacoes", async (req, res)=>{
-    console.log(req.body);
     await database.databaseInsertPublication(req.body);
     res.status(201).json({message: "Dados criados"});
 })
@@ -53,6 +53,11 @@ server.post("/sistema/publicacoes", async (req, res)=>{
 server.delete("/sistema/publicacoes/:id", async (req, res)=>{
     await database.databaseDeletePublication(req.params.id);
     res.status(204).json({message: "Dados deletados"});
+})
+
+server.patch("/sistema/publicacoes/:id", async (req, res)=>{
+    await database.databaseUpdatePublication(req.params.id, req.body)
+    res.status(200).json({message: "Dados atualizados"});
 })
 
 server.listen(port, ()=>{

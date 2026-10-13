@@ -24,20 +24,19 @@ async function listMembers(){
             
             spanName.textContent = member.nome;
             spanCourse.textContent = `${member.curso} - ${member.time}`;
+            buttonEdt.textContent = "Editar";
+            buttonDel.textContent = "Deletar";
             
-            buttonEdt.textContent = "Edt";
-            buttonDel.textContent = "Del";
-            
-            divInfos.appendChild(spanName);
-            divInfos.appendChild(spanCourse)
-            
-            divButtons.appendChild(buttonDel);
-            divButtons.appendChild(buttonEdt);
-            
+            buttonEdt.className = "button-edit-member";
+            buttonDel.className = "button-delete-member"
             divMember.className = "member";
             divInfos.className = "member-infos";
             divButtons.className = "member-buttons";
-            
+
+            divInfos.appendChild(spanName);
+            divInfos.appendChild(spanCourse)
+            divButtons.appendChild(buttonEdt);
+            divButtons.appendChild(buttonDel);
             divMember.appendChild(divInfos)
             divMember.appendChild(divButtons)
             listMembers.appendChild(divMember)
@@ -56,8 +55,6 @@ async function listMembers(){
                         
                         const data = await response.json();
                         console.log(data);
-                        
-                        return await response;
                         
                     }catch(err){
                         console.log(`ERRO delete membro: ${err}`);
@@ -116,7 +113,6 @@ async function listMembers(){
                             const data = await response.json()
                             console.log(data);
 
-                            return await response;
                         }catch(err){
                             console.log(`ERRO patch membro: ${err}`);
                         }
@@ -165,8 +161,6 @@ buttonInvitMember.addEventListener("click", (evt)=>{
 
             const data = await response.json();
             console.log(data);
-    
-            return await response;
 
         }catch(err){
             console.log(`ERRO post membro: ${err}`);
@@ -211,6 +205,9 @@ async function listPublication(){
             publication.className = "publication";
             typePublication.className = "type-publication"
             typeText.className = "type-text";
+            divOperationPublication.className = "div-operation-publication";
+            buttonEdt.className = "button-edit-publication";
+            buttonDel.className = "button-delete-publication";
             titlePublication.className = "title-publication";
             divLocalization.className = "localization-publication";
             localPublication.className = "local-publication";
@@ -218,8 +215,8 @@ async function listPublication(){
             textPublication.className = "text-publication";
 
             typeText.textContent = pbl.tipo;
-            buttonEdt.textContent = "Edt";
-            buttonDel.textContent = "Del";
+            buttonEdt.textContent = "Editar";
+            buttonDel.textContent = "Deletar";
             titlePublication.textContent = pbl.titulo;
             localPublication.textContent = pbl.local;
             yearPublication.textContent = pbl.ano;
@@ -250,8 +247,7 @@ async function listPublication(){
 
                         const data = await res.json();
                         console.log(data);
-
-                        return await res;                    
+                
                     }catch(err){
                         console.log(`ERRO delete publicação: ${err}`);
                     }
@@ -290,7 +286,31 @@ async function listPublication(){
 
                     console.log(formObject);
 
-                    
+                    async function editPublication(){
+                        try{
+                             const res = await fetch(`${url}/publicacoes/${pbl.id}`, {
+                                method: "PATCH",
+                                headers: {
+                                    "Content-type":"application/json",
+                                },
+                                body: JSON.stringify({
+                                    tipo: formObject.tipo,
+                                    local: formObject.local,
+                                    ano: formObject.ano,
+                                    titulo: formObject.titulo,
+                                    texto: formObject.texto
+                                })
+                            })
+
+                            const data = await res.json()
+                            console.log(data)
+                        }catch(err){
+                            console.log(`ERRO patch publicacao: ${err}`);
+                        }
+                       
+                    }
+
+                    editPublication();
                 })
             })
         })
@@ -328,8 +348,7 @@ buttonInvitPublication.addEventListener("click", (evt)=>{
 
             const data = await response.json();
             console.log(data)
-
-            return await response;
+            
         }catch(err){
             console.log(`ERRO post publicação: ${err}`);
         }

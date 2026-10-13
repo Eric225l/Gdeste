@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sistema</title>
     <link rel="stylesheet" href="Sistema.css">
 </head>
 <body>
@@ -131,39 +131,39 @@
             </form>
 
             <form class="edit-publication">
-                    <div class="titles">
-                        <h2 class="title">Editar Publicação</h2>
-                        <p class="subtitle">Preencha todos os campus</p>
-                    </div>
+                <div class="titles">
+                    <h2 class="title">Editar Publicação</h2>
+                    <p class="subtitle">Preencha todos os campus</p>
+                </div>
                     
-                    <div class="group-input-2">
-                        <div class="group-input-4">
-                            <div class="group-input-1">
-                                <label>Tipo de publicação</label>
-                                <input type="text" name="tipo" id="input-tipo-edit" class="input" placeholder="Ex: TCC">
+                <div class="group-input-2">
+                    <div class="group-input-4">
+                        <div class="group-input-1">
+                            <label>Tipo de publicação</label>
+                            <input type="text" name="tipo" id="input-tipo-edit" class="input" placeholder="Ex: TCC">
+                        </div>
+                        <div class="group-input-3">
+                            <div class="group-local">
+                                <label>Local de divulgação</label>
+                                <input type="text" name="local" id="input-local-edit" class="input" placeholder="Ex: IFTO, Campus Palmas">
                             </div>
-                            <div class="group-input-3">
-                                <div class="group-local">
-                                    <label>Local de divulgação</label>
-                                    <input type="text" name="local" id="input-local-edit" class="input" placeholder="Ex: IFTO, Campus Palmas">
-                                </div>
-                                <div class="group-year">
-                                    <label>Ano de divulgação</label>
-                                    <input type="number" name="ano" id="input-ano-edit" class="input" placeholder="2026">
-                                </div>
-                            </div>
-                            <div class="group-input-1">
-                                <label>Titulo da publicação</label>
-                                <textarea class="textarea-title" name="titulo" id="textarea-titulo-edit" placeholder="Titulo Completo"></textarea>
+                            <div class="group-year">
+                                <label>Ano de divulgação</label>
+                                <input type="number" name="ano" id="input-ano-edit" class="input" placeholder="2026">
                             </div>
                         </div>
-                        <div class="group-input-4">
-                            <label>Texto da publicação</label>
-                            <textarea class="textarea-text" name="texto" id="textarea-texto-edit" placeholder="Texto completo"></textarea>
+                        <div class="group-input-1">
+                            <label>Titulo da publicação</label>
+                            <textarea class="textarea-title" name="titulo" id="textarea-titulo-edit" placeholder="Titulo Completo"></textarea>
                         </div>
                     </div>
-                    <button type="submit" id="button-edit-publication" class="button-invit-publication" class="button-invit-publication">Enviar</button>
-                </form>
+                    <div class="group-input-4">
+                        <label>Texto da publicação</label>
+                        <textarea class="textarea-text" name="texto" id="textarea-texto-edit" placeholder="Texto completo"></textarea>
+                    </div>
+                </div>
+                <button type="submit" id="button-edit-publication" class="button-invit-publication" class="button-invit-publication">Enviar</button>
+            </form>
         </div>
     </main>
 

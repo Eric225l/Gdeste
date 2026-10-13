@@ -212,7 +212,7 @@ main{
 .group-member{
     height: 650px;
     width: 90%;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
@@ -240,8 +240,7 @@ main{
     color: white;
 }
 
-.list-members{
-    
+.list-members{ 
     padding-bottom: 30px;
     height: 550px;
     width: 58%;
@@ -285,7 +284,40 @@ main{
 }
 
 .member-buttons{
+    display: flex;
     margin-right: 3%;
+    gap: 8%;
+}
+
+.button-edit-member{
+    height: 30px;
+    width: 60px;
+    background-color: transparent;
+    border: 1px solid #00a0ba;
+    border-radius: 5px;
+    color: #00a0ba;
+    transition: all 0.1s ease-in;
+}
+
+.button-edit-member:hover{
+    background-color: #00a0ba;
+    color: #f4fafd;
+}
+
+
+.button-delete-member{
+    height: 30px;
+    width: 60px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 54, 54);
+    border-radius: 5px;
+    color: rgb(255, 54, 54);
+    transition: all 0.1s ease-in;
+}
+
+.button-delete-member:hover{
+    background-color: rgb(255, 54, 54);
+    color: #f4fafd;
 }
 
 /*Blur de edição*/
@@ -339,7 +371,7 @@ main{
 .group-publications{
     height: 700px;
     width: 85%;
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
     color:#4b4b4b
@@ -420,6 +452,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     border-radius: 5px;
     transition: all 0.2s ease-in-out
@@ -432,7 +465,7 @@ main{
 }
 
 .type-publication{
-    width: 80%;
+    width: 90%;
     height: 30px;
     margin-top: 10px ;
     display: flex;
@@ -442,7 +475,7 @@ main{
 
 .type-text{
     margin: 0;
-    padding: 2px 16px;
+    padding: 1px 9px;
     height: 30px;
     background-color: #14213D;   
     border-radius: 10px;
@@ -453,24 +486,61 @@ main{
     
 }
 
+.div-operation-publication{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.button-edit-publication{
+    height: 25px;
+    width: 60px;
+    background-color: transparent;
+    border: 1px solid #00a0ba;
+    border-radius: 5px;
+    color: #00a0ba;
+    transition: all 0.1s ease-in;
+}
+
+.button-edit-publication:hover{
+    background-color: #00a0ba;
+    color: #f4fafd;
+}
+
+.button-delete-publication{
+    height: 25px;
+    width: 60px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 54, 54);
+    border-radius: 5px;
+    color: rgb(255, 54, 54);
+    transition: all 0.1s ease-in;
+}
+
+.button-delete-publication:hover{
+    background-color: rgb(255, 54, 54);
+    color: #f4fafd;
+}
+
 .title-publication{
-    width: 100%;
+    margin-top: 12px;
+    width: 85%;
     height: 80px;
-    margin-top:10px ;
     text-align: center;
     font-size: 20px;
     font-weight: 500;
-    margin-top: 10px;
     
 }
 
 .localization-publication{
-    width: 90%;
+    margin-top: 10px;
     height: 30px;
+    width: 80%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 11px;
-    margin-top: 10px;
 }
 
 .local-publication{
@@ -488,12 +558,11 @@ main{
 
 .year-publication{
     margin: 0;
-    padding: 1px 4px;
+    padding: 1px;
     height: 20px;
     width: 20%;
     background-color: #14213D;
     border-radius: 5px;
-    margin-right: 20px;
     color: white;
     display: flex;
     align-items: center;

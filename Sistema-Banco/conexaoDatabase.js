@@ -134,7 +134,26 @@ async function databaseDeletePublication(id){
         const values = [id];
         const res = await client.query(sql, values)
     }catch(err){
-        console.log(`Erro operação delete publication: ${err}`);
+        console.log(`Erro de operação delete publication: ${err}`);
+        throw err;
+    }finally{
+        if(client){
+            client.release();
+        }
+    }
+}
+
+async function databaseUpdatePublication(id, user){
+    let client;
+    
+    try{
+        client = await conectionDatabase();
+        const sql = "UPDATE publicacoes SET tipo=$1, local=$2, ano=$3, titulo=$4, texto=$5 WHERE id=$6";
+        const values = [user.tipo, user.local, user.ano, user.titulo, user.texto, id];
+        const res = await client.query(sql, values);
+    }catch(err){
+        console.log(`ERRO de operação patch publication: ${err}`);
+        throw err;
     }finally{
         if(client){
             client.release();
@@ -149,5 +168,6 @@ module.exports = {
     databaseUpdateMember,
     databaseInsertPublication,
     databaseVisualizePublication,
-    databaseDeletePublication
+    databaseDeletePublication,
+    databaseUpdatePublication
 }

@@ -1,28 +1,35 @@
-/*Area para as operações nos membros presentes no laboratorio */
 const url = "http://localhost:3000/sistema";/*Link para as rotas das operações nos membros*/
 
-const buttonInvitMember = document.querySelector("#button-invit-member");
+//Area para as operações nos membros presentes no laboratorio 
 
-/*Requisição para listar os membros do banco de dados*/
+const divlistMembers = document.querySelector(".list-members");
+
+//Requisição de listagem de membros
 
 async function listMembers(){
     try{
-        let listMembers = document.querySelector(".list-members")
         const response = await fetch(`${url}/membros`);
         const data = await response.json();
         
+        //Verifica se a publicações na array de response
+
         if(data.length != 0){
-            listMembers.textContent = "";
+            divlistMembers.textContent = "";
         }
+
+        //Mostrar os membros que estão na array
         
         data.forEach(member => {
+
+            //Cria uma estrutura de uma membro
+
             const divMember = document.createElement("div");
             const spanName = document.createElement("span");
             const spanCourse = document.createElement("span");
             const buttonEdt = document.createElement("button");
             const buttonDel = document.createElement("button");
             const divButtons = document.createElement("div");
-            const divInfos = document.createElement("div")
+            const divInfos = document.createElement("div");
             
             spanName.textContent = member.nome;
             spanCourse.textContent = `${member.curso} - ${member.time}`;
@@ -30,7 +37,7 @@ async function listMembers(){
             buttonDel.textContent = "Deletar";
             
             buttonEdt.className = "button-edit-member";
-            buttonDel.className = "button-delete-member"
+            buttonDel.className = "button-delete-member";
             divMember.className = "member";
             divInfos.className = "member-infos";
             divButtons.className = "member-buttons";
@@ -39,11 +46,13 @@ async function listMembers(){
             divInfos.appendChild(spanCourse)
             divButtons.appendChild(buttonEdt);
             divButtons.appendChild(buttonDel);
-            divMember.appendChild(divInfos)
-            divMember.appendChild(divButtons)
-            listMembers.appendChild(divMember)
+            divMember.appendChild(divInfos);
+            divMember.appendChild(divButtons);
+            divlistMembers.appendChild(divMember);
+
+            //Fim da criação da estrutura de membro
             
-            /*Requesição para deletar membros do banco de dados*/
+            //Botão de requisição de exclusão de uma publicação
             
             buttonDel.addEventListener("click", ()=>{
                 async function deleteMember(){
@@ -67,12 +76,14 @@ async function listMembers(){
                 window.location.reload();
             })
             
-            /*Requisição para editar os dados de um membro no banco de dados*/
+            /*Area para editar os dados de um membro no banco de dados*/
             
             buttonEdt.addEventListener("click", ()=>{
                 let divEditBlur = document.querySelector(".blur");
                 let divEditmember = document.querySelector(".div-edit-member");
                 let buttonClose = document.querySelector(".button-close");
+
+                //Botão para fechar area de edição de publicação
 
                 buttonClose.addEventListener("click", ()=>{
                     divEditBlur.style.display = "none";
@@ -102,10 +113,14 @@ async function listMembers(){
 
                 let buttonEditMember = document.querySelector("#button-edit-member");
 
+                //Area de edição de membro
+
                 buttonEditMember.addEventListener("click", (evt)=>{  
                     let formEditMember = document.querySelector(".div-edit-member");
                     let formData = new FormData(formEditMember);
                     let formObject = Object.fromEntries(formData);
+
+                    //Botão de requisição de envio dos dados de edição de membro
              
                     async function editMembers(){
                         try{
@@ -124,7 +139,7 @@ async function listMembers(){
 
                             })
 
-                            const data = await response.json()
+                            const data = await response.json();
                             console.log(data);
 
                         }catch(err){
@@ -132,23 +147,28 @@ async function listMembers(){
                         }
                     }
 
-                    editMembers()
+                    editMembers();
 
                 })
                 
             })
+
+            //Fim edição de membro
         });
         
     }catch(err){
-        console.log(`ERRO get membro: ${err}`)
+        console.log(`ERRO get membro: ${err}`);
     }
 }
 
 listMembers();
 
-/*Requisição para criar um membro dentro do banco de dados */
+//Fim da listagem de membros e operações de exclusão e edição
 
 const formInvitMember = document.querySelector(".invit-member");
+const buttonInvitMember = document.querySelector("#button-invit-member");
+
+//Area de requisição de envio de uma publicação para o banco de dados
 
 buttonInvitMember.addEventListener("click", (evt)=>{
     const formData = new FormData(formInvitMember);
@@ -183,27 +203,34 @@ buttonInvitMember.addEventListener("click", (evt)=>{
     }
 
     insertMember();
-    window.location.reload()
+    window.location.reload();
 })
 
-/*Final das operações dos membros presentes no laboratório*/
+//Fim da operação de envio de um membro para o banco de dados
 
-/*Area para as operações das publicações feitas pelo laboratorio */
+//Area para as operações das publicações feitas pelo laboratorio
 
-let formInvitPublication = document.querySelector(".invit-publication");
-let buttonInvitPublication = document.querySelector(".button-invit-publication");
 const divListPublication = document.querySelector(".list-publications");
+
+//Requisição de listagem de publicações
 
 async function listPublication(){
     try{
         const response = await fetch(`${url}/publicacoes`);
         const data = await response.json();
 
+        //Verifica se a publicações na array de response
+
         if(data.length != 0){
             divListPublication.textContent = "";
         }
 
+        //Mostrar as publicação que estão na array
+
         data.forEach(pbl => {
+
+            //Cria uma estrutura de uma publicação 
+
             const divPublication = document.createElement("div");
             const publication = document.createElement("div");
             const typePublication = document.createElement("section");
@@ -248,8 +275,12 @@ async function listPublication(){
             publication.appendChild(titlePublication);
             publication.appendChild(divLocalization);
             publication.appendChild(textPublication);
-            divPublication.appendChild(publication)
+            divPublication.appendChild(publication);
             divListPublication.appendChild(divPublication);
+
+            //Fim da criação da estrutura de publicação
+
+            //Botão de requisição de exclusão de uma publicação
 
             buttonDel.addEventListener("click", ()=>{
                 async function deletePublication(){
@@ -273,10 +304,14 @@ async function listPublication(){
                 window.location.reload();
             })
 
+            //Area de edição de publicação
+
             buttonEdt.addEventListener("click", ()=>{
                 let divEditBlur = document.querySelector(".blur");
                 let formEditPublication = document.querySelector(".edit-publication");
                 let buttonClose = document.querySelector(".button-close");
+
+                //Botão para fechar area de edição de publicação
 
                 buttonClose.addEventListener("click", ()=>{
                     divEditBlur.style.display = "none";
@@ -304,6 +339,8 @@ async function listPublication(){
                 textoEdit.value = pbl.texto; 
                 
                 let buttonEditPublication = document.querySelector("#button-edit-publication");
+
+                //Botão de requisição de envio dos dados de edição de publicação
 
                 buttonEditPublication.addEventListener("click", (evt)=>{
                     evt.preventDefault();
@@ -347,7 +384,14 @@ async function listPublication(){
     }
 }
 
-listPublication()
+listPublication();
+
+//Fim da listagem de publicações e operações de exclusão e edição
+
+const formInvitPublication = document.querySelector(".invit-publication");
+const buttonInvitPublication = document.querySelector(".button-invit-publication");
+
+//Area requisição de envio de uma publicação para o banco de dados
 
 buttonInvitPublication.addEventListener("click", (evt)=>{
     evt.preventDefault()
@@ -383,4 +427,6 @@ buttonInvitPublication.addEventListener("click", (evt)=>{
 
     insertPublication();
 })
+
+//Fim da operação de envio de uma publicação para o banco de dados
 

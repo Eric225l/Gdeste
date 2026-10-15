@@ -30,7 +30,6 @@ main{
     width: 110px;
     background-color:white;
     border: transparent;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,8 +38,7 @@ main{
 }
 
 .button-operations-members:hover{
-    background-color: #14213D;
-    color: white;
+    border-bottom: 1px solid black;
 }
 
 .button-operations-publications{
@@ -49,7 +47,6 @@ main{
     background-color: white;
     display: flex;
     border: transparent;
-    border-radius: 5px;
     align-items: center;
     justify-content: center;
     border: transparent;
@@ -58,8 +55,7 @@ main{
 }
 
 .button-operations-publications:hover{
-    background-color: #14213D;
-    color: white;
+    border-bottom: 1px solid black;
 }
 
 .group-operations{
@@ -320,7 +316,23 @@ main{
     color: #f4fafd;
 }
 
-/*Blur de edição*/
+/*Area de edição*/
+
+.group-close{
+    height: 40px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.button-close{
+    height: 90%;
+    width: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .blur{
     height: 100%;
@@ -381,7 +393,7 @@ main{
     padding-top:20px;
     height: 630px;
     width: 90%;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -408,15 +420,35 @@ main{
 }
 
 .button-left{
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
     display: none;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: 0.1s all ease-in;
+}
+
+.button-left:hover{
+    background-color: #c9c9c9;
 }
 
 .button-right{
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: 0.1s all ease-in;
+}
+
+.button-right:hover{
+    background-color: #c9c9c9;
 }
 
 .list-publications{
@@ -424,7 +456,7 @@ main{
     height: 630px;
     width: 90%;
     background-color: #f4fafd;
-    display: grid;
+    display: none;
     grid-template-columns: auto auto auto;
     justify-content: center;
     gap: 10px;

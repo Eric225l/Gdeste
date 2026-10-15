@@ -11,7 +11,7 @@ server.use(cors({
     origin: "*",
     method: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus:200
+    optionsSuccessStatus: 200,
 }));
 
 server.use(express.json());

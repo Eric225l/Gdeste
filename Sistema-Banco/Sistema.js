@@ -11,7 +11,9 @@ async function listMembers(){
         const response = await fetch(`${url}/membros`);
         const data = await response.json();
         
-        listMembers.textContent = "";
+        if(data.length != 0){
+            listMembers.textContent = "";
+        }
         
         data.forEach(member => {
             const divMember = document.createElement("div");
@@ -70,6 +72,18 @@ async function listMembers(){
             buttonEdt.addEventListener("click", ()=>{
                 let divEditBlur = document.querySelector(".blur");
                 let divEditmember = document.querySelector(".div-edit-member");
+                let buttonClose = document.querySelector(".button-close");
+
+                buttonClose.addEventListener("click", ()=>{
+                    divEditBlur.style.display = "none";
+                    divEditmember.style.display = "none";
+                    inputName.value = " ";
+                    inputCourse.value = " ";
+                    inputTime.value = " ";
+                    inputLattes.value = " ";
+                    inputStatus.value = " ";
+
+                })
 
                 divEditBlur.style.display = "flex";
                 divEditmember.style.display = "flex";
@@ -185,7 +199,9 @@ async function listPublication(){
         const response = await fetch(`${url}/publicacoes`);
         const data = await response.json();
 
-        divListPublication.textContent = ""
+        if(data.length != 0){
+            divListPublication.textContent = "";
+        }
 
         data.forEach(pbl => {
             const divPublication = document.createElement("div");
@@ -260,6 +276,17 @@ async function listPublication(){
             buttonEdt.addEventListener("click", ()=>{
                 let divEditBlur = document.querySelector(".blur");
                 let formEditPublication = document.querySelector(".edit-publication");
+                let buttonClose = document.querySelector(".button-close");
+
+                buttonClose.addEventListener("click", ()=>{
+                    divEditBlur.style.display = "none";
+                    formEditPublication.style.display = "none";
+                    tipoEdit.value =  " ";
+                    localEdit.value = " ";
+                    anoEdit.value = " "; 
+                    tituloEdit.value = " ";
+                    textoEdit.value = " "; 
+                })
 
                 divEditBlur.style.display = "flex";
                 formEditPublication.style.display = "flex";

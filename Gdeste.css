@@ -273,9 +273,9 @@ html{
 }
 
 .text-equipe{
-    font-size:15px;
+    font-size: 15px;
     font-weight: 400;
-    color:white;
+    color :white;
 }
 
 .seta-equipes{
@@ -287,15 +287,49 @@ html{
     transition: 0.2s all ease-in-out;
 }
 
-.div-membros{
-    display:none;
-    transition: 0.2s all ease-in-out;
+.list-members{
+    display: none;
 }
 
-.div-membros-active{
-    height:300px;
+.list-members-active{
+    height: 300px;
     width: 90%;
-    background-color: rgb(68, 81, 97);
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: activeList 0.3s ease-out forwards;
+}
+
+@keyframes activeList{
+    from {
+        opacity: 0;
+        transform: translateY(-8px); /* Começa um pouco deslocado para cima */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);    /* Termina na posição original */
+    }
+}
+
+.member{
+    margin-top: 15px;
+    height: 60px;
+    width: 95%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid white;
+    color: white;
+    font-size: 19px;
+    transition: 0.2s all ease-in-out;
+    
 }
 
 /*Fim da pagina Equipes*/
@@ -335,79 +369,89 @@ html{
     gap: 3%;
 }
 
-.div-publi{
+/*Card da publicação*/
+
+.div-publication{
     height: 400px;
     width: 310px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
+    font-family: "IBM Plex Sans", sans-serif;
 }
 
-.publicacao{
+.publication{
     height: 390px;
     width: 300px;
-    background-color: #BAB7AF;
-    border-radius: 10px;
-    border: 1px solid black;
+    background-color: white;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 5px;
     transition: all 0.2s ease-in-out
 }
 
-.publicacao:hover{
+.publication:hover{
     height: 392px;
-    width: 302px;
-    box-shadow:0px 0px 5px black
+    width: 301px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.tipo-publi{
-    width: 100%;
+.type-publication{
+    width: 90%;
     height: 30px;
     margin-top: 10px ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.text-tipo{
-    height: 30px;
-    width: 20%;
+.type-text{
     margin: 0;
+    padding: 1px 9px;
+    height: 30px;
     background-color: #14213D;   
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    margin-left: 20px;
     
 }
 
-.titulo-publi{
-    width: 100%;
+
+.title-publication{
+    margin-top: 12px;
+    width: 85%;
     height: 80px;
-    margin-top:10px ;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     font-weight: 500;
-    margin-top: 10px;
     
 }
 
-.localizacao-publi{
-    width: 100%;
+.localization-publication{
+    margin-top: 10px;
     height: 30px;
+    width: 80%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 11px;
-    margin-top: 10px;
 }
 
-.lugar-publi{
+.local-publication{
+    margin: 0;
+    padding: 1px 8px;
     height: 20px;
-    width: 50%;
     background-color: #14213D;
     border-radius: 5px;
-    margin: 0;
-    margin-left: 20px;
     color: white;
     display: flex;
     align-items: center;
@@ -415,28 +459,30 @@ html{
     
 }
 
-.ano-publi{
+.year-publication{
+    margin: 0;
+    padding: 1px;
     height: 20px;
     width: 20%;
     background-color: #14213D;
     border-radius: 5px;
-    margin: 0;
-    margin-right: 20px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.text-publi{
+.text-publication{
+    margin:0;
+    margin-top:10px ;
     width: 80%;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: start;
-    margin-top:10px ;
     font-size: 16px;
 }
+
 
 
 /*Fim da pagina Publicações*/
@@ -594,6 +640,8 @@ html{
     border-bottom: 2px solid #BC6D0A;
 }
 
+/*Area historia laboratório*/
+
 .overlay{
     display: none;
     transition: all 0.2s ease-in-out
@@ -617,29 +665,32 @@ html{
 }
 
 .pop-up-historia-active{
-    height: 500px;
+    height: 450px;
     width: 50%;
+    background-color: white;
     position: fixed;
-    background-color: #BAB7AF;
     display:flex;
     top: 20%;
     transition: all 0.2s ease-in-out;
     z-index: 10000;
+    border-radius: 10px;
 }
 
 .div-area-fechar{
-    height: 100%;
+    height: 450px;
     width: 40%;
     background-color: #14213D;
     display: flex;
     align-items: center;
     justify-content: start;
     flex-direction: column;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .div-button-fechar{
     height: 70px;
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
 }
@@ -652,15 +703,15 @@ html{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 20px;
-    background-color: white;
-    border-radius: 20px;
     transition: all 0.2s ease-in-out;
+    font-size: 25px;
+    color: #BAB7AF;
+    font-family: "IBM Plex Sans", sans-serif;
 }
 
 .button-fechar:hover{
-    background-color: #BAB7AF;
-    transition: all 0.2s ease-in-out;
+    color: white;
+
 }
 
 .text-area-fechar{
@@ -668,6 +719,7 @@ html{
     width: 70%;
     margin-top: 100px;
     font-size: 40px;
+    font-weight: 700;
     color: white;
     line-height: 1.5;
 }

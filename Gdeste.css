@@ -360,10 +360,12 @@ html{
 }
 
 .div-publicacoes{
-    height: 430px;
+    margin-top: 10px;
+    padding-top: 10px;
+    height: 410px;
     width: 70%;
     display: flex;
-    align-items: center;
+    align-items: star;
     justify-content: center;
     border-top: 1px solid black;
     gap: 3%;
@@ -422,7 +424,6 @@ html{
     
 }
 
-
 .title-publication{
     margin-top: 12px;
     width: 85%;
@@ -474,7 +475,7 @@ html{
 
 .text-publication{
     margin:0;
-    margin-top:10px ;
+    margin-top: 10px;
     width: 80%;
     height: 200px;
     display: flex;
@@ -483,7 +484,15 @@ html{
     font-size: 16px;
 }
 
+/*Área do botão de direcionamento de mais publicações*/
 
+.div-button-more-publication{
+    display: none;
+}
+
+.div-button-more-publication-active{
+    display: flex;
+}
 
 /*Fim da pagina Publicações*/
 
@@ -754,7 +763,7 @@ html{
 }
 .logo-instituto{
     height: 70px;
-    width: 270px;
+    width: 240px;
 }
 
 .div-localizacao{

@@ -491,6 +491,7 @@ html{
 }
 
 .div-button-more-publication-active{
+    text-decoration: none;
     display: flex;
 }
 

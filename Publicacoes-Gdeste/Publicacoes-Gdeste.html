@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Publicacoes-Gdeste.css">
+</head>
+<body>
+    <main class="PUBLICACOES">
+
+        <!-- Seção do botão de voltar-->
+
+        <section class="section-button-voltar">
+            <a class="a-button-voltar" href="../Gdeste.html">
+                <button type="button" class="button-voltar"><img src="../img/seta-esquerda.png" class="img-seta">Voltar para página inicial</button>
+            </a>
+        </section>    
+
+        <!--Seção do titulo de publicações-->
+
+        <section class="section-text-publicacao"><p class="text-publicacoes">PUBLICAÇÕES</p></section>
+
+        <!--Seção dos botões de tipo de publicação-->
+
+        <section class="section-tipo-publicacao">
+            <div class="div-tipo-publicacao">
+                <button class="button-type-publication-active" id="button-type-publication" data-tipo="todos">Todos</button>
+                <button class="button-type-publication" id="button-type-publication" data-tipo="tcc">TCC</button>
+                <button class="button-type-publication" id="button-type-publication" data-tipo="iniciação">Científica</button>
+                <button class="button-type-publication" id="button-type-publication" data-tipo="extensão">Extensão</button>
+            </div>
+        </section>
+
+        <!--Seção das publicações-->
+
+        <section class="list-publications" data-filter="desactive">
+
+        </section>
+
+        <!--Seção de texto de mais publicações em andamento-->
+
+        <section class="section-mais-publicacoes"><p class="div-mais-publicacoes">Mais trabalhos em andamento</p></section>
+    </main>
+
+
+    <script src="Publicacoes-Gdeste.js""></script>
+</body>
+</html>

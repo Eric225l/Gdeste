@@ -115,7 +115,7 @@ async function listMembers(){
 
                 //Area de edição de membro
 
-                buttonEditMember.addEventListener("click", (evt)=>{  
+                buttonEditMember.addEventListener("submit", ()=>{  
                     let formEditMember = document.querySelector(".div-edit-member");
                     let formData = new FormData(formEditMember);
                     let formObject = Object.fromEntries(formData);
@@ -170,7 +170,7 @@ const buttonInvitMember = document.querySelector("#button-invit-member");
 
 //Area de requisição de envio de uma publicação para o banco de dados
 
-buttonInvitMember.addEventListener("click", (evt)=>{
+buttonInvitMember.addEventListener("submit", ()=>{
     const formData = new FormData(formInvitMember);
     const formObject = Object.fromEntries(formData);
     
@@ -282,7 +282,7 @@ async function listPublication(){
 
             //Botão de requisição de exclusão de uma publicação
 
-            buttonDel.addEventListener("click", ()=>{
+            buttonDel.addEventListener("submit", ()=>{
                 async function deletePublication(){
                     try{
                         const res = await fetch(`${url}/publicacoes/${pbl.id}`, {
@@ -342,7 +342,7 @@ async function listPublication(){
 
                 //Botão de requisição de envio dos dados de edição de publicação
 
-                buttonEditPublication.addEventListener("click", (evt)=>{
+                buttonEditPublication.addEventListener("submit", (evt)=>{
                     evt.preventDefault();
 
                     let formData = new FormData(formEditPublication);
@@ -393,7 +393,7 @@ const buttonInvitPublication = document.querySelector(".button-invit-publication
 
 //Area requisição de envio de uma publicação para o banco de dados
 
-buttonInvitPublication.addEventListener("click", (evt)=>{
+buttonInvitPublication.addEventListener("submit", (evt)=>{
     evt.preventDefault()
 
     const formData = new FormData(formInvitPublication);

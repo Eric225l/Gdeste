@@ -27,23 +27,23 @@
                     <h2 class="title">Adicionar Membro</h2>
                     <div class="group-input-0">
                         <label>Nome</label>
-                        <input type="text" name="nome" class="input" placeholder="Nome completo">
+                        <input type="text" name="nome" class="input" placeholder="Nome completo" required>
                     </div>
                     <div class="group-input-0">
                         <label>Curso</label>
-                        <input type="text" name="curso" class="input" placeholder="Ex: ENG.telecomunicações">
+                        <input type="text" name="curso" class="input" placeholder="Ex: ENG.telecomunicações" required>
                     </div>
                     <div class="group-input-0">
                         <label>Time</label>
-                        <input type="text" name="time" class="input" placeholder="Ex: Hardware">
+                        <input type="text" name="time" class="input" placeholder="Ex: Hardware" required>
                     </div>
                     <div class="group-input-0">
                         <label>Link Lattes</label>
-                        <input type="text" name="lattes" class="input" placeholder="Opcional">
+                        <input type="text" name="lattes" class="input" placeholder="Opcional" required>
                     </div>
                     <div class="group-input-0">
                         <label>Status</label>
-                        <input type="text" name="status" class="input" placeholder="Ex: Ativo">
+                        <input type="text" name="status" class="input" placeholder="Ex: Ativo" required>
                     </div>
                     <button type="submit" class="button-member" id="button-invit-member">Enviar</button>
                 </form>
@@ -69,26 +69,26 @@
                         <div class="group-input-4">
                             <div class="group-input-1">
                                 <label>Tipo de publicação</label>
-                                <input type="text" name="tipo" class="input" placeholder="Ex: TCC">
+                                <input type="text" name="tipo" class="input" placeholder="Ex: TCC" required>
                             </div>
                             <div class="group-input-3">
                                 <div class="group-local">
                                     <label>Local de divulgação</label>
-                                    <input type="text" name="local" class="input" placeholder="Ex: IFTO, Campus Palmas">
+                                    <input type="text" name="local" class="input" placeholder="Ex: IFTO, Campus Palmas" required>
                                 </div>
                                 <div class="group-year">
                                     <label>Ano de divulgação</label>
-                                    <input type="number" name="ano" class="input" placeholder="2026">
+                                    <input type="number" name="ano" class="input" placeholder="2026" required>
                                 </div>
                             </div>
                             <div class="group-input-1">
                                 <label>Titulo da publicação</label>
-                                <textarea class="textarea-title" name="titulo" placeholder="Titulo Completo"></textarea>
+                                <textarea class="textarea-title" name="titulo" placeholder="Titulo Completo" required></textarea>
                             </div>
                         </div>
                         <div class="group-input-4">
                             <label>Texto da publicação</label>
-                            <textarea class="textarea-text" name="texto" placeholder="Texto completo"></textarea>
+                            <textarea class="textarea-text" name="texto" placeholder="Texto completo" required></textarea>
                         </div>
                     </div>
                     <button type="submit" class="button-invit-publication" class="button-invit-publication">Enviar</button>
@@ -112,23 +112,23 @@
                 <h2 class="title">Editar membro</h2>
                 <div class="group-input-0">
                     <label>Nome</label>
-                    <input type="text" class="input" id="input-name-edit" name="nome" placeholder="Nome completo">
+                    <input type="text" class="input" id="input-name-edit" name="nome" placeholder="Nome completo" required>
                 </div>
                 <div class="group-input-0">
                     <label>Curso</label>
-                    <input type="text" class="input" id="input-course-edit" name="curso" placeholder="Ex: ENG.telecomunicações">
+                    <input type="text" class="input" id="input-course-edit" name="curso" placeholder="Ex: ENG.telecomunicações" required>
                 </div>
                 <div class="group-input-0">
                     <label>Time</label>
-                    <input type="text" class="input" id="input-time-edit" name="time" placeholder="Ex: Software">
+                    <input type="text" class="input" id="input-time-edit" name="time" placeholder="Ex: Software" required>
                 </div>
                 <div class="group-input-0">
                     <label>Lattes</label>
-                    <input type="text" class="input" id="input-lattes-edit" name="lattes" placeholder="Opcional">
+                    <input type="text" class="input" id="input-lattes-edit" name="lattes" placeholder="Opcional" required>
                 </div>
                 <div class="group-input-0">
                     <label>Status</label>
-                    <input type="text" class="input" id="input-status-edit" name="status" placeholder="Ex: Ativo">
+                    <input type="text" class="input" id="input-status-edit" name="status" placeholder="Ex: Ativo" required>
                 </div>
                 <button type="submit" id="button-edit-member" class="button-member">Editar</button>
             </form>
@@ -146,26 +146,26 @@
                     <div class="group-input-4">
                         <div class="group-input-1">
                             <label>Tipo de publicação</label>
-                            <input type="text" name="tipo" id="input-tipo-edit" class="input" placeholder="Ex: TCC">
+                            <input type="text" name="tipo" id="input-tipo-edit" class="input" placeholder="Ex: TCC" required>
                         </div>
                         <div class="group-input-3">
                             <div class="group-local">
                                 <label>Local de divulgação</label>
-                                <input type="text" name="local" id="input-local-edit" class="input" placeholder="Ex: IFTO, Campus Palmas">
+                                <input type="text" name="local" id="input-local-edit" class="input" placeholder="Ex: IFTO, Campus Palmas" required>
                             </div>
                             <div class="group-year">
                                 <label>Ano de divulgação</label>
-                                <input type="number" name="ano" id="input-ano-edit" class="input" placeholder="2026">
+                                <input type="number" name="ano" id="input-ano-edit" class="input" placeholder="2026" required>
                             </div>
                         </div>
                         <div class="group-input-1">
                             <label>Titulo da publicação</label>
-                            <textarea class="textarea-title" name="titulo" id="textarea-titulo-edit" placeholder="Titulo Completo"></textarea>
+                            <textarea class="textarea-title" name="titulo" id="textarea-titulo-edit" placeholder="Titulo Completo" required></textarea>
                         </div>
                     </div>
                     <div class="group-input-4">
                         <label>Texto da publicação</label>
-                        <textarea class="textarea-text" name="texto" id="textarea-texto-edit" placeholder="Texto completo"></textarea>
+                        <textarea class="textarea-text" name="texto" id="textarea-texto-edit" placeholder="Texto completo" required></textarea>
                     </div>
                 </div>
                 <button type="submit" id="button-edit-publication" class="button-invit-publication" class="button-invit-publication">Enviar</button>

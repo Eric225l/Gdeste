@@ -50,35 +50,67 @@ function CardPublication(tipo, titulo, local, ano, texto){
 
 //função de requisição da api
 
-async function GetTodos(typePublication){
-    let response = await fetch(`${url}/publicacoes`);
-    let data = await response.json();
+let textNullPublications = document.querySelector(".text-null-publications")
+let textPublicationTempo = document.querySelector(".text-mais-publicacoes")
 
-    data.forEach(publication=>{
-        let type = publication.tipo;
+async function GetTodos(typePublication){
+    try{
+        let response = await fetch(`${url}/publicacoes`);
+        let data = await response.json();
+
+        //Variavel para identificar se existe uma publicação para determinado tipo
+
+        let truePublication = false
+
+        if(data.length != 0){
+            textNullPublications.style.display = "none";
+            textPublicationTempo.style.display = "flex";
+        }
         
-        if(typePublication == undefined){
-            CardPublication(publication.tipo, publication.titulo, publication.local, publication.ano, publication.texto);
+        //Filtro de publicações
+
+        data.forEach(publication=>{
+            let type = publication.tipo;
+            
+            if(typePublication == undefined){
+                CardPublication(publication.tipo, publication.titulo, publication.local, publication.ano, publication.texto);
+                truePublication = true;
+            }
+            else if(typePublication == "todos"){
+                CardPublication(publication.tipo, publication.titulo, publication.local, publication.ano, publication.texto);
+                truePublication = true;
+            }
+            else if(type.toLowerCase() == typePublication){
+                CardPublication(publication.tipo, publication.titulo, publication.local, publication.ano, publication.texto);
+                truePublication = true;
+            }
+        })
+
+        //Verifica se existe publicações para determinado tipo
+
+        if(!truePublication){
+            textNullPublications.style.display = "flex";
+            textPublicationTempo.style.display = "none";
         }
-        else if(typePublication == "todos"){
-            CardPublication(publication.tipo, publication.titulo, publication.local, publication.ano, publication.texto);
-        }
-        else if(type.toLowerCase() == typePublication){
-            CardPublication(publication.tipo, publication.titulo, publication.local, publication.ano, publication.texto);
-        }
-    })
+    }catch(err){
+        console.log(`Erro no get: ${err}`);
+    }
 }
+
+//Verifica se o filtro está ou não ativado
 
 if(listPublications.dataset.filter == "desactive"){
     GetTodos()
 }
 
-//Filtro
+//Filtro de publicações
 
 buttonsNavigate.forEach(button => {
 
     button.addEventListener("click", ()=>{
         
+        //Manter o botão com traço 
+
         buttonsNavigate.forEach(active => {
             active.className = "button-type-publication";
         })
@@ -101,7 +133,7 @@ buttonsNavigate.forEach(button => {
             GetTodos(button.dataset.tipo);
         }
         else if(button.dataset.tipo == "extensão"){
-             listPublications.textContent = " ";
+            listPublications.textContent = " ";
             listPublications.dataset.filter = "active"
             GetTodos(button.dataset.tipo);
         }

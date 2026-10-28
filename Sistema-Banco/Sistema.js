@@ -166,11 +166,11 @@ listMembers();
 //Fim da listagem de membros e operações de exclusão e edição
 
 const formInvitMember = document.querySelector(".invit-member");
-const buttonInvitMember = document.querySelector("#button-invit-member");
 
 //Area de requisição de envio de uma publicação para o banco de dados
 
-buttonInvitMember.addEventListener("submit", ()=>{
+formInvitMember.addEventListener("submit", ()=>{
+    
     const formData = new FormData(formInvitMember);
     const formObject = Object.fromEntries(formData);
     
@@ -282,7 +282,7 @@ async function listPublication(){
 
             //Botão de requisição de exclusão de uma publicação
 
-            buttonDel.addEventListener("submit", ()=>{
+            buttonDel.addEventListener("click", ()=>{
                 async function deletePublication(){
                     try{
                         const res = await fetch(`${url}/publicacoes/${pbl.id}`, {
@@ -389,12 +389,10 @@ listPublication();
 //Fim da listagem de publicações e operações de exclusão e edição
 
 const formInvitPublication = document.querySelector(".invit-publication");
-const buttonInvitPublication = document.querySelector(".button-invit-publication");
 
 //Area requisição de envio de uma publicação para o banco de dados
 
-buttonInvitPublication.addEventListener("submit", (evt)=>{
-    evt.preventDefault()
+formInvitPublication.addEventListener("submit", (evt)=>{
 
     const formData = new FormData(formInvitPublication);
     const formObject = Object.fromEntries(formData);

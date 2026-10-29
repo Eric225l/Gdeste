@@ -2,6 +2,7 @@ let url = "http://localhost:3000/sistema";
 let listMembers = document.querySelectorAll("#list-members");
 
 //Requisição de listagem dos membros em cada um dos times
+
 async function MembersGet(){
     let response = await fetch(`${url}/membros`);
     let data = await response.json()
@@ -32,6 +33,7 @@ let listPublication = document.querySelector(".div-publicacoes")
 let divbuttonMorePublication = document.querySelector("#div-button-more-publication");
 
 //Requisição de listagem das três primeiras publicações
+
 async function PublicationGet(){
     try{
         let response = await fetch(`${url}/publicacoes`);
@@ -41,6 +43,8 @@ async function PublicationGet(){
             listPublication.textContent = "";
             divbuttonMorePublication.className = "div-button-more-publication-active";
         }
+
+        //Cria três publicações principais
 
         for(let indice = 0; indice <= 3; indice++){
             console.log(data[indice]);

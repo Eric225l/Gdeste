@@ -4,25 +4,35 @@ let divEquipes = document.querySelector("#div-equipes");
 let listMembersGeral = document.querySelectorAll('#list-members')
 let setaMembrosGeral = document.querySelectorAll("#seta-equipes")
 
+//função para abrir seção de membros
+
 buttonEquipe.forEach((sectionAbrir) => {
     sectionAbrir.addEventListener("click", (section)=>{
         let setaMembros = section.currentTarget.querySelector("#seta-equipes");
         let listMembers = section.currentTarget.querySelector("#list-members");
 
         if(sectionAbrir.className == "equipe"){
-    
+            
+            //Funções individuais
+
+            //Abrir cada seção
+
             buttonEquipe.forEach((sectionsFechar) =>{
                 sectionsFechar.className = "equipe";
             })
+
+            //Girar as setas e indicar a seção aberta
 
             setaMembrosGeral.forEach((setaGeralFechar) => {
                 setaGeralFechar.className = "seta-equipes";
             })
 
+            //Fechar cada seção
+
             listMembersGeral.forEach((listMembersClose) => {
                 listMembersClose.className = "list-members";
             })
-
+            
             sectionAbrir.className = "equipe-active";
             divPrincipal.className = "EQUIPES-ACTIVE";
             divEquipes.className = "div-equipes-active";
@@ -47,11 +57,15 @@ let overlay = document.querySelector("#overlay");
 let popUp = document.querySelector("#pop-up-historia");
 let body = document.getElementsByTagName("body")[0];
 
+//Função para abrir o pop-up de História
+
 buttonVerMais.addEventListener("click", ()=>{
     overlay.className = "overlay-active";
     popUp.className = "pop-up-historia-active";
     body.style.overflow = "hidden";
 })
+
+//Função para fechar pop-up de história
 
 buttonFechar.addEventListener("click", ()=>{
     overlay.className = "overlay";

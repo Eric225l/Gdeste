@@ -270,6 +270,23 @@ main{
     font-family: "JetBrains Mono", monospace;   
 }
 
+/*Estilização da barra lateral*/
+
+.list-members::-webkit-scrollbar{
+    width: 23px;
+}
+
+.list-members::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+.list-members::-webkit-scrollbar-thumb{
+    background-color: #bababa;
+    border-radius: 15px;
+    border: 5px solid transparent; 
+    background-clip: padding-box; 
+}
+
 /*Card dos membros*/
 
 .member{
@@ -286,6 +303,12 @@ main{
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     flex-shrink: 0;
     will-change: transform;
+    transition: all 0.1s ease-in;
+}
+
+.member:hover{
+    background-color: rgb(232, 232, 232);
+    transition: all 0.1s ease-in;
 }
 
 .member-infos{
@@ -377,21 +400,37 @@ main{
     font-family: "IBM Plex Sans", sans-serif;
 }
 
+.form-edit-member{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /*Edição da publicação*/
 
-.edit-publication{
-    background-color: white;
-    padding-top:20px;
+.div-edit-publication{
+    padding-top: 40px;
     height: 630px;
     width: 60%;
+    background-color: white;
     display: none;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
     gap: 10px;
     border-radius: 10px;
     font-family: "IBM Plex Sans", sans-serif;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.form-edit-publication{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /*Area Publicações*/
@@ -479,6 +518,21 @@ main{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     overflow-x: hidden;
+}
+
+.list-publications::-webkit-scrollbar{
+    width: 23px;
+}
+
+.list-publications::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+.list-publications::-webkit-scrollbar-thumb{
+    background-color: #bababa;
+    border-radius: 15px;
+    border: 5px solid transparent; 
+    background-clip: padding-box; 
 }
 
 /*Card da publicação*/

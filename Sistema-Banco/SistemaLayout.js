@@ -1,3 +1,5 @@
+//Função de troca de telas entre membros e publicações
+
 let buttonMembers = document.querySelector("#button-operations-members");
 let buttonPublication = document.querySelector("#button-operations-publications");
 
@@ -14,6 +16,7 @@ buttonMembers.addEventListener("click", ()=>{
     groupPublications.style.display = "none";
 })
 
+//Função de troca de telas de adicionar publicações e elista de publicações
 
 let navigateLeft = document.querySelector("#button-left");
 let navigateRight = document.querySelector("#button-right");
@@ -22,8 +25,6 @@ let invitPublication = document.querySelector(".invit-publication")
 let listPublications = document.querySelector(".list-publications");
 
 navigateLeft.addEventListener("click", ()=>{
-    console.log("left")
-
     invitPublication.style.display = "flex";
     listPublications.style.display = "none";
 
@@ -32,8 +33,6 @@ navigateLeft.addEventListener("click", ()=>{
 })
 
 navigateRight.addEventListener("click", ()=>{
-    console.log("right");
-    
     listPublications.style.display = "grid";
     invitPublication.style.display = "none";
 

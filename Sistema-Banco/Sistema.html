@@ -11,6 +11,9 @@
         <div class="header">
             <img src="../img/gdeste.png" class="img-laboratory">
         </div>
+
+        <!--Botões de navegação entre membros e publicações-->
+
         <div class="group-navigations">
             <button class="button-operations-members" id="button-operations-members">Membros</button>
             <button class="button-operations-publications" id="button-operations-publications">Publicações</button>
@@ -23,6 +26,9 @@
             <!--Area de envio de membros-->
 
             <div class="group-member">
+
+                <!--Formulário de adição de membros-->
+
                 <form class="invit-member" >
                     <h2 class="title">Adicionar Membro</h2>
                     <div class="group-input-0">
@@ -47,18 +53,29 @@
                     </div>
                     <button type="submit" class="button-member" id="button-invit-member">Enviar</button>
                 </form>
+
+                <!--Lista de membros--> 
+
                 <div class="list-members">
                     <span class="text-load">Nenhum dado encontrado</span>
                 </div>
+
             </div>
+
+            <!--Fim da área de membros-->
 
             <!--Area de envio de Publicações-->
 
             <div class="group-publications">
+
+                <!--Botão de navegação esquerdo-->
+
                 <div class="div-navigate">
                     <button class="button-left" id="button-left"><img src="../img/arrow_back.png" alt=""></button>
                 </div>
                 
+                <!--Formulário de envio de publicações-->
+
                 <form class="invit-publication">
                     <div class="titles">
                         <h2 class="title">Adicionar Publicação</h2>
@@ -93,9 +110,15 @@
                     </div>
                     <button type="submit" class="button-invit-publication" class="button-invit-publication">Enviar</button>
                 </form>
+
+                <!--Lista de publicações-->
+
                 <div class="list-publications">
                     <span class="text-load">Nenhuma publicação encontrada</span>
                 </div>
+
+                <!--Boão de navegação direito-->
+
                 <div class="div-navigate">
                     <button class="button-right" id="button-right"><img src="../img/arrow_forward.png" alt=""></button>
                 </div>
@@ -103,74 +126,84 @@
             </div>  
         </div>
 
-        <!--area de edição-->
+        <!--Fim da área de publicações-->
+
+        <!--área de edição-->
+
         <div class="blur">
 
             <!--Edição dos membros -->
-            <form class="div-edit-member">
-                <div class="group-close"><button class="button-close"><img src="../img/button-close.png" alt=""></button></div>
-                <h2 class="title">Editar membro</h2>
-                <div class="group-input-0">
-                    <label>Nome</label>
-                    <input type="text" class="input" id="input-name-edit" name="nome" placeholder="Nome completo" required>
-                </div>
-                <div class="group-input-0">
-                    <label>Curso</label>
-                    <input type="text" class="input" id="input-course-edit" name="curso" placeholder="Ex: ENG.telecomunicações" required>
-                </div>
-                <div class="group-input-0">
-                    <label>Time</label>
-                    <input type="text" class="input" id="input-time-edit" name="time" placeholder="Ex: Software" required>
-                </div>
-                <div class="group-input-0">
-                    <label>Lattes</label>
-                    <input type="text" class="input" id="input-lattes-edit" name="lattes" placeholder="Opcional" required>
-                </div>
-                <div class="group-input-0">
-                    <label>Status</label>
-                    <input type="text" class="input" id="input-status-edit" name="status" placeholder="Ex: Ativo" required>
-                </div>
-                <button type="submit" id="button-edit-member" class="button-member">Editar</button>
-            </form>
+            <div class="div-edit-member">
+                <div class="group-close"><button class="button-close" id="button-close-member"><img src="../img/button-close.png" alt=""></button></div>
+                <form class="form-edit-member">
+                    <h2 class="title">Editar membro</h2>
+                    <div class="group-input-0">
+                        <label>Nome</label>
+                        <input type="text" class="input" id="input-name-edit" name="nome" placeholder="Nome completo" required>
+                    </div>
+                    <div class="group-input-0">
+                        <label>Curso</label>
+                        <input type="text" class="input" id="input-course-edit" name="curso" placeholder="Ex: ENG.telecomunicações" required>
+                    </div>
+                    <div class="group-input-0">
+                        <label>Time</label>
+                        <input type="text" class="input" id="input-time-edit" name="time" placeholder="Ex: Software" required>
+                    </div>
+                    <div class="group-input-0">
+                        <label>Lattes</label>
+                        <input type="text" class="input" id="input-lattes-edit" name="lattes" placeholder="Opcional" required>
+                    </div>
+                    <div class="group-input-0">
+                        <label>Status</label>
+                        <input type="text" class="input" id="input-status-edit" name="status" placeholder="Ex: Ativo" required>
+                    </div>
+                    <button type="submit" id="button-edit-member" class="button-member">Editar</button>
+                </form>
+            </div>
 
             <!--Edição das publicações-->
 
-            <form class="edit-publication"> 
-                <div class="group-close"><button class="button-close"><img src="../img/button-close.png" alt=""></button></div>
-                <div class="titles">
-                    <h2 class="title">Editar Publicação</h2>
-                    <p class="subtitle">Preencha todos os campus</p>
-                </div>
-                    
-                <div class="group-input-2">
-                    <div class="group-input-4">
-                        <div class="group-input-1">
-                            <label>Tipo de publicação</label>
-                            <input type="text" name="tipo" id="input-tipo-edit" class="input" placeholder="Ex: TCC" required>
-                        </div>
-                        <div class="group-input-3">
-                            <div class="group-local">
-                                <label>Local de divulgação</label>
-                                <input type="text" name="local" id="input-local-edit" class="input" placeholder="Ex: IFTO, Campus Palmas" required>
+            <div class="div-edit-publication">      
+                <div class="group-close"><button class="button-close" id="button-close-publication"><img src="../img/button-close.png"></button></div>
+                <form class="form-edit-publication"> 
+                    <div class="titles">
+                        <h2 class="title">Editar Publicação</h2>
+                        <p class="subtitle">Preencha todos os campus</p>
+                    </div>
+                        
+                    <div class="group-input-2">
+                        <div class="group-input-4">
+                            <div class="group-input-1">
+                                <label>Tipo de publicação</label>
+                                <input type="text" name="tipo" id="input-tipo-edit" class="input" placeholder="Ex: TCC" required>
                             </div>
-                            <div class="group-year">
-                                <label>Ano de divulgação</label>
-                                <input type="number" name="ano" id="input-ano-edit" class="input" placeholder="2026" required>
+                            <div class="group-input-3">
+                                <div class="group-local">
+                                    <label>Local de divulgação</label>
+                                    <input type="text" name="local" id="input-local-edit" class="input" placeholder="Ex: IFTO, Campus Palmas" required>
+                                </div>
+                                <div class="group-year">
+                                    <label>Ano de divulgação</label>
+                                    <input type="number" name="ano" id="input-ano-edit" class="input" placeholder="2026" required>
+                                </div>
+                            </div>
+                            <div class="group-input-1">
+                                <label>Titulo da publicação</label>
+                                <textarea class="textarea-title" name="titulo" id="textarea-titulo-edit" placeholder="Titulo Completo" required></textarea>
                             </div>
                         </div>
-                        <div class="group-input-1">
-                            <label>Titulo da publicação</label>
-                            <textarea class="textarea-title" name="titulo" id="textarea-titulo-edit" placeholder="Titulo Completo" required></textarea>
+                        <div class="group-input-4">
+                            <label>Texto da publicação</label>
+                            <textarea class="textarea-text" name="texto" id="textarea-texto-edit" placeholder="Texto completo" required></textarea>
                         </div>
                     </div>
-                    <div class="group-input-4">
-                        <label>Texto da publicação</label>
-                        <textarea class="textarea-text" name="texto" id="textarea-texto-edit" placeholder="Texto completo" required></textarea>
-                    </div>
-                </div>
-                <button type="submit" id="button-edit-publication" class="button-invit-publication" class="button-invit-publication">Enviar</button>
-            </form>
+                    <button type="submit" id="button-edit-publication" class="button-invit-publication" class="button-invit-publication">Enviar</button>
+                </form>
+            </div>
         </div>
+
+        <!--Fim da área de edição de membros-->
+
     </main>
 
     <script src="Sistema.js"></script>

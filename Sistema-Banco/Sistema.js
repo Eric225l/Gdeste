@@ -81,19 +81,14 @@ async function listMembers(){
             buttonEdt.addEventListener("click", ()=>{
                 let divEditBlur = document.querySelector(".blur");
                 let divEditmember = document.querySelector(".div-edit-member");
-                let buttonClose = document.querySelector(".button-close");
+                let buttonClose = document.querySelector("#button-close-member");
 
                 //Botão para fechar area de edição de publicação
 
                 buttonClose.addEventListener("click", ()=>{
+            
                     divEditBlur.style.display = "none";
                     divEditmember.style.display = "none";
-                    inputName.value = " ";
-                    inputCourse.value = " ";
-                    inputTime.value = " ";
-                    inputLattes.value = " ";
-                    inputStatus.value = " ";
-
                 })
 
                 divEditBlur.style.display = "flex";
@@ -110,13 +105,12 @@ async function listMembers(){
                 inputTime.value = member.time;
                 inputLattes.value = member.lattes;
                 inputStatus.value = member.status;
-
-                let buttonEditMember = document.querySelector("#button-edit-member");
-
+                
                 //Area de edição de membro
 
-                buttonEditMember.addEventListener("submit", ()=>{  
-                    let formEditMember = document.querySelector(".div-edit-member");
+                let formEditMember = document.querySelector(".form-edit-member");
+
+                formEditMember.addEventListener("submit", ()=>{  
                     let formData = new FormData(formEditMember);
                     let formObject = Object.fromEntries(formData);
 
@@ -308,46 +302,42 @@ async function listPublication(){
 
             buttonEdt.addEventListener("click", ()=>{
                 let divEditBlur = document.querySelector(".blur");
-                let formEditPublication = document.querySelector(".edit-publication");
-                let buttonClose = document.querySelector(".button-close");
+                let buttonClose = document.querySelector("#button-close-publication");
+                let divEditPublication = document.querySelector(".div-edit-publication");
 
                 //Botão para fechar area de edição de publicação
-
+               
                 buttonClose.addEventListener("click", ()=>{
+                    console.log("fechou")
                     divEditBlur.style.display = "none";
-                    formEditPublication.style.display = "none";
-                    tipoEdit.value =  " ";
-                    localEdit.value = " ";
-                    anoEdit.value = " "; 
-                    tituloEdit.value = " ";
-                    textoEdit.value = " "; 
+                    divEditPublication.style.display = "none";
                 })
 
                 divEditBlur.style.display = "flex";
-                formEditPublication.style.display = "flex";
+                divEditPublication.style.display = "flex";
 
                 let tipoEdit = document.querySelector("#input-tipo-edit");
                 let localEdit = document.querySelector("#input-local-edit");
                 let anoEdit = document.querySelector("#input-ano-edit");
                 let tituloEdit = document.querySelector("#textarea-titulo-edit");
                 let textoEdit = document.querySelector("#textarea-texto-edit");
-
+                
                 tipoEdit.value = pbl.tipo;
                 localEdit.value = pbl.local;
                 anoEdit.value = pbl.ano; 
                 tituloEdit.value = pbl.titulo;
                 textoEdit.value = pbl.texto; 
                 
-                let buttonEditPublication = document.querySelector("#button-edit-publication");
-
                 //Botão de requisição de envio dos dados de edição de publicação
-
-                buttonEditPublication.addEventListener("submit", (evt)=>{
+                
+                let formEditPublication = document.querySelector(".form-edit-publication");
+                
+                formEditPublication.addEventListener("submit", (evt)=>{
                     evt.preventDefault();
-
+                    
                     let formData = new FormData(formEditPublication);
                     let formObject = Object.fromEntries(formData);
-
+                    
                     console.log(formObject);
 
                     async function editPublication(){
@@ -367,7 +357,7 @@ async function listPublication(){
                             })
 
                             const data = await res.json()
-                            console.log(data)
+                            console.log(data);
                         }catch(err){
                             console.log(`ERRO patch publicacao: ${err}`);
                         }
@@ -375,6 +365,7 @@ async function listPublication(){
                     }
 
                     editPublication();
+
                 })
             })
         })
